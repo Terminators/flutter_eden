@@ -7,7 +7,6 @@ class EdenRoute {
   static Future<T?> push<T>(
     /// 页面路径
     String path, {
-
     /// 参数
     Map<String, String>? parameters,
 
