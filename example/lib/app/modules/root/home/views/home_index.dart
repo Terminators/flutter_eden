@@ -4,15 +4,17 @@ import '../controllers/home_controller.dart';
 import 'home_view.dart';
 
 class HomeIndex extends EdenBaseListWidget<HomeController> with HomeView {
+  HomeIndex({super.key});
+
   @override
   String toolbarTitle() {
     return "Home";
   }
 
   @override
-  Widget buildListView(BuildContext context, HomeController _controller) {
-    return renderItemView(context, _controller.sourceList, (menu) {
-      _controller.onMenuInfo(menu);
+  Widget buildListView(BuildContext context, HomeController controller) {
+    return renderItemView(context, controller.sourceList, (menu) {
+      controller.onMenuInfo(menu);
     });
   }
 }
