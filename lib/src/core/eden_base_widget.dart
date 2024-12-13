@@ -75,17 +75,6 @@ abstract class EdenBaseWidget<T extends EdenBaseController> extends GetView<T> {
           );
   }
 
-  ///build body
-  @protected
-  Widget buildBody(BuildContext context, T controller);
-
-  ///bottom navigation bar
-  @protected
-  Widget? bottomNavigationBar() => null;
-  @protected
-  Widget? floatingActionButton() => null;
-  Widget? endDrawer() => null;
-
   ///
   void openEndDrawer() {
     _scaffoldKey.currentState?.openEndDrawer();
@@ -108,6 +97,33 @@ abstract class EdenBaseWidget<T extends EdenBaseController> extends GetView<T> {
   void didUpdateWidget(
       GetBuilder<GetxController> controller, GetBuilderState<T> state) {}
 
+  /// Scaffold
+  @protected
+  bool extendBodyBehindAppBar() {
+    return false;
+  }
+
+  @protected
+  Color? backgroundColor() {
+    return null;
+  }
+
+  @protected
+  String? getViewTag() {
+    return null;
+  }
+
+  ///build body
+  @protected
+  Widget buildBody(BuildContext context, T controller);
+
+  ///bottom navigation bar
+  @protected
+  Widget? bottomNavigationBar() => null;
+  @protected
+  Widget? floatingActionButton() => null;
+  Widget? endDrawer() => null;
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<T>(
@@ -116,9 +132,12 @@ abstract class EdenBaseWidget<T extends EdenBaseController> extends GetView<T> {
         dispose: onDispose,
         didChangeDependencies: didChangeDependencies,
         didUpdateWidget: didUpdateWidget,
+        tag: getViewTag(),
         builder: (controller) {
           return Scaffold(
             key: _scaffoldKey,
+            extendBodyBehindAppBar: extendBodyBehindAppBar(),
+            backgroundColor: backgroundColor(),
             resizeToAvoidBottomInset: resizeToAvoidBottomInset(),
             appBar: appToolbar(context),
             body: buildBody(context, controller),

@@ -1,12 +1,11 @@
 import 'package:flutter_eden/eden.dart';
 
-// ignore: must_be_immutable
 abstract class EdenBaseListWidget<T extends EdenBaseListController>
     extends EdenBaseWidget<T> {
-  EdenBaseListWidget({Key? key}) : super(key: key);
+  EdenBaseListWidget({super.key});
 
   ///body view
-  Widget buildListView(BuildContext context, T _controller);
+  Widget buildListView(BuildContext context, T controller);
 
   ///topView
   Widget renderHeadView(BuildContext context) {
@@ -14,7 +13,7 @@ abstract class EdenBaseListWidget<T extends EdenBaseListController>
   }
 
   @override
-  Widget buildBody(BuildContext context, T _controller) {
+  Widget buildBody(BuildContext context, T controller) {
     return Column(
       children: [
         renderHeadView(context), //topView
@@ -31,7 +30,7 @@ abstract class EdenBaseListWidget<T extends EdenBaseListController>
               controller.onLoading();
             },
             primary: false,
-            child: buildListView(context, _controller),
+            child: buildListView(context, controller),
           ),
         ),
       ],

@@ -2,6 +2,8 @@ import 'package:flutter_eden/eden.dart';
 
 abstract class EdenNavBaseWidget<T extends EdenNavBaseController>
     extends EdenBaseWidget<T> {
+  EdenNavBaseWidget({super.key});
+
   ///page list
   @protected
   List<Widget> renderPages();

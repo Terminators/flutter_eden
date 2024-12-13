@@ -3,7 +3,7 @@ import 'package:flutter_eden/eden.dart';
 ///
 abstract class EdenBaseServiceWidget<T extends EdenBaseService>
     extends GetView<T> {
-  EdenBaseServiceWidget({Key? key}) : super(key: key);
+  EdenBaseServiceWidget({super.key});
 
   ///toolbar title
   String? _toolbarTitle;
