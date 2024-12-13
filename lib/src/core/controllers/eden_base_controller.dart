@@ -1,7 +1,7 @@
 import 'package:flutter_eden/eden.dart';
 
 abstract class EdenBaseController extends GetxController {
-  final bool? _isRequest = false;
+  final bool _isRequest = false;
 
   bool? get isRequest => _isRequest;
 

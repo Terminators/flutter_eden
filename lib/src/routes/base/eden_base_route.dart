@@ -14,19 +14,20 @@ abstract class EdenBaseRoute implements BaseRoute {
     List<GetMiddleware>? middlewares,
     List<GetPage<dynamic>>? children,
     Transition? transition,
+    Duration? transitionDuration,
   }) {
     return GetPage<T>(
-      name: name,
-      page: page,
-      preventDuplicates: preventDuplicates ?? true,
-      binding: BindingsBuilder(() {
-        bindingsBuilder();
-      }),
-      bindings: bindings ?? [],
-      middlewares: middlewares,
-      children: children ?? [],
-      transition: transition ?? Transition.cupertino,
-    );
+        name: name,
+        page: page,
+        preventDuplicates: preventDuplicates ?? true,
+        binding: BindingsBuilder(() {
+          bindingsBuilder();
+        }),
+        bindings: bindings ?? [],
+        middlewares: middlewares,
+        children: children ?? [],
+        transition: transition ?? Transition.rightToLeft,
+        transitionDuration: transitionDuration);
   }
 
   S edenFind<S>({String? tag}) => Get.find<S>(tag: tag);

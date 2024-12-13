@@ -24,7 +24,7 @@ class EdenMaterialWrapper extends StatelessWidget {
   final ValueChanged<Routing?>? routingCallback;
   final GlobalKey<NavigatorState>? navigatorKey;
   const EdenMaterialWrapper({
-    Key? key,
+    super.key,
     this.enableLog,
     this.debugShowCheckedModeBanner,
     this.logTag,
@@ -44,7 +44,7 @@ class EdenMaterialWrapper extends StatelessWidget {
     this.fallbackLocale,
     this.routingCallback,
     this.navigatorKey,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

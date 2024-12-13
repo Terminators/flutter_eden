@@ -17,6 +17,8 @@ class HomeController extends EdenBaseListController {
   @override
   void init() {
     print("init...");
+    //测试代码
+    print("--init---${EdenLayoutUtils.screenSize()}--");
   }
 
   @override

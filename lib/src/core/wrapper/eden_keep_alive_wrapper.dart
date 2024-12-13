@@ -5,7 +5,7 @@ import 'package:flutter_eden/eden.dart';
 ///Getx issues https://github.com/jonataslaw/getx/issues/822
 class EdenKeepAliveWrapper extends StatefulWidget {
   final Widget child;
-  const EdenKeepAliveWrapper({Key? key, required this.child}) : super(key: key);
+  const EdenKeepAliveWrapper({super.key, required this.child});
 
   @override
   State<StatefulWidget> createState() => _EdenKeepAliveWrapperState();

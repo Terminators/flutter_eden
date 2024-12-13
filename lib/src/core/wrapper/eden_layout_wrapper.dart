@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_eden/eden.dart';
 import 'dart:ui' show window;
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -81,12 +82,15 @@ class EdenLayoutUtils {
       ScreenUtil().screenHeight - statusBarHeight - bottomBarHeight;
 
   /// 屏幕物理像素
-  static Size get physicalSize => window.physicalSize;
+  static Size get physicalSize =>
+      PlatformDispatcher.instance.implicitView!.physicalSize;
 
   /// 默认 逻辑像素dp
   static Size screenSize() => Size(
-        physicalSize.width / window.devicePixelRatio,
-        physicalSize.height / window.devicePixelRatio,
+        physicalSize.width /
+            PlatformDispatcher.instance.implicitView!.devicePixelRatio,
+        physicalSize.height /
+            PlatformDispatcher.instance.implicitView!.devicePixelRatio,
       );
 
   /// 其他的数值
@@ -110,8 +114,8 @@ class EdenLayoutWrapper extends StatelessWidget {
   const EdenLayoutWrapper({
     required this.builder,
     this.designSize = ScreenUtil.defaultSize,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
